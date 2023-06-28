@@ -5,10 +5,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MARIADB_DATABASE=wp-database 
-      - MARIADB_USER=wp-user 
-      - MARIADB_PASSWORD=1234 
-      - MARIADB_ROOT_PASSWORD=1234
+      - MARIADB_DATABASE=<dbname_here>
+      - MARIADB_USER=<username_here>
+      - MARIADB_PASSWORD=<password_here>
+      - MARIADB_ROOT_PASSWORD=<password_here>
     volumes:
       - mariadb-volume:/var/lib/mysql
   wordpress-test:
@@ -16,11 +16,11 @@ services:
     ports: 
       - 80:80
     environment:
-      - WORDPRESS_DB_HOST=192.168.15.181
-      - WORDPRESS_DB_USER=wp-user 
-      - WORDPRESS_DB_NAME=wp-database 
-      - WORDPRESS_DB_PASSWORD=1234 
-      - WORDPRESS_TABLE_PREFIX=testwp_
+      - WORDPRESS_DB_HOST=<host>
+      - WORDPRESS_DB_USER=<username>
+      - WORDPRESS_DB_NAME=<dbname>
+      - WORDPRESS_DB_PASSWORD=<password>
+      - WORDPRESS_TABLE_PREFIX=<tableprefix>
     volumes:
       - wordpress-volume:/var/www/html/wp-content
 volumes:
